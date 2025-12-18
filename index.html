@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work in Progress</title>
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #1d2026;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+  }
+
+  h1 {
+    margin-top: -85px;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+  .progress-container {
+    width: 300px;
+    height: 25px;
+    background: #292e36;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 12px 0 0 12px;
+    background: linear-gradient(270deg, #4d90fd, #4185f4, #336ece);
+    background-size: 400% 100%;
+    animation: moveGradient 5s linear infinite;
+    filter: blur(10px);
+    transition: width 0.3s ease;
+  }
+
+  @keyframes moveGradient {
+    0% { background-position: 0% 0; }
+    100% { background-position: 400% 0; }
+  }
+
+  p {
+    margin-top: 7px;
+    font-size: 1em;
+    color: #aaa;
+  }
+
+  lottie-player {
+    width: 400px;
+    height: 400px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- Lottie Animation -->
+<lottie-player 
+    src="lottie/wip.json"  
+    background="transparent"  
+    speed="1"  
+    loop  
+    autoplay>
+</lottie-player>
+<h1>Check back later! We are Working on stuff... </h1>
+
+<!-- Progress Bar -->
+<div class="progress-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+<p id="progressText">0%</p>
+
+<!-- Lottie Player Script -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<script>
+  // Set the progress value (0-100)
+  let progressValue = 20; // Example: 70%
+  
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+
+  progressBar.style.width = progressValue + '%';
+  progressText.textContent = progressValue + '%';
+</script>
+
+</body>
+</html>
